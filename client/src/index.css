@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #020617;
+}
+
+header,
+#login form,
+#register form,
+aside,
+main,
+aside form input,
+.total-income-container,
+.card {
+  background: rgba(2, 6, 23, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.logo {
+  font-family: "Darktech LDR";
+}
+
+.home {
+  display: grid;
+  grid-template-columns: 18% 1fr;
+}
+
+aside li {
+  padding: 1em;
+}
+
+aside li:hover,
+.active {
+  background: rgba(184, 192, 226, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/*MY INCOME SECTION*/
+
+.income {
+  display: grid;
+  grid-template-columns: 1fr 30%;
+  grid-template-rows: 1fr 40%;
+}
+
+@media screen and (max-width: 1220px) {
+  .income {
+    grid-template-columns: 1fr;
+  }
+}
+
+.income h1 {
+  text-align: center;
+  font-family: "Predataur Condensed";
+}
+
+.income form input {
+  background-color: transparent;
+  width: 100%;
+  margin: 0.5rem auto;
+  padding: 0.7em;
+  font-size: 1rem;
+  outline: none;
+}
+
+.income form input::placeholder,
+.update-form input::placeholder {
+  font-size: 1rem;
+}
+
+.income-table th,
+.income-table tbody tr td {
+  background: rgba(2, 6, 23, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 0.3em;
+  width: 100%;
+}
+
+.income-table-container {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/*Income Update Modal*/
+
+.modal-title {
+  font-family: "Predataur Condensed";
+}
+
+.update-form input {
+  width: 100%;
+  margin: 0.5rem auto;
+  padding: 0.7em;
+  font-size: 1rem;
+  border: solid 1px gray;
+  background: transparent;
+  outline: none;
+  color: #fff;
+}
+
+#modal form input {
+  border: solid white 2px;
+}
+
+/*REVENUE*/
