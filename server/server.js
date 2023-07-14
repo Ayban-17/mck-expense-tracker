@@ -12,7 +12,12 @@ const port = process.env.PORT || 4000;
 const uri = process.env.MONGO_URI;
 
 app.use(express.json());
-app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
+app.use(
+  cors({
+    credentials: true,
+    origin: "https://machakath-expense-tracker-6a1q.vercel.app/",
+  })
+);
 app.use(cookieParser());
 
 app.use("/api/v1/users", userRoutes);
