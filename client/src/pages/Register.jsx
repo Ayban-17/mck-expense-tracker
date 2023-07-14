@@ -2,7 +2,7 @@ import { useState } from "react";
 import Copyright from "../components/Copyright";
 import axios from "axios";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 
 const Register = () => {
@@ -11,6 +11,7 @@ const Register = () => {
   const [name, setName] = useState("");
   const [confirm, setConfirm] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,11 +25,10 @@ const Register = () => {
       const url = import.meta.env.VITE_BASE + "users/register";
       const response = await axios.post(url, { username, name, password });
       console.log(response.data);
+      navigate("/");
     } catch (error) {
       console.log(error.data);
     }
-
-    console.log(confirm);
   };
 
   return (
