@@ -27,7 +27,7 @@ const App = () => {
         const response = await axios.post(url, {}, { withCredentials: true });
         setUserInfo(response.data);
       } catch (error) {
-        console.log(error.response.data);
+        console.log(error);
       }
     };
     isLogin();
