@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    origin: "https://machakath-expense-tracker.vercel.app",
+    origin: "https://machakath-client.onrender.com/",
   })
 );
 app.use(cookieParser());
