@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    origin: "https://machakath.onrender.com",
+    origin: true,
   })
 );
 app.use(cookieParser());
