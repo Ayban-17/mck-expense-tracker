@@ -18,6 +18,8 @@ const App = () => {
   useEffect(() => {
     const isLogin = async () => {
       const url = import.meta.env.VITE_BASE + "users/auth";
+
+      console.log(url)
       try {
         const response = await axios.post(url, {}, { withCredentials: true });
         setUserInfo(response.data);
