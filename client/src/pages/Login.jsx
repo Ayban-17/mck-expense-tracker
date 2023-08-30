@@ -19,7 +19,7 @@ const Login = () => {
     }
     try {
       const response = await axios.post(
-        "/api/v1/users/login",
+        "https://machakath-api.onrender.com/api/v1/users/login",
         { username, password },
         { withCredentials: true }
       );
