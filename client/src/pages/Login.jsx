@@ -24,6 +24,7 @@ const Login = () => {
         { username, password },
         { withCredentials: true }
       );
+      console.log(response.data);
       setUserInfo(response.data);
       navigate("/dashboard");
     } catch (error) {

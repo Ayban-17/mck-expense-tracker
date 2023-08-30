@@ -11,11 +11,13 @@ const app = express();
 const port = process.env.PORT || 4000;
 const uri = process.env.MONGO_URI;
 
+
+
 app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    origin: "https://machakath-client.onrender.com",
+    origin: "http://localhost:5173",
   })
 );
 app.use(cookieParser());

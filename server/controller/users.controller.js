@@ -8,9 +8,17 @@ const loginUser = async (req, res) => {
 
     try {
       const token = await jwt.sign({ name, userId: _id }, process.env.SECRET, {
-        expiresIn: "1d",
+        expiresIn: "30d",
       });
-      res.cookie("token", token).json({ name });
+      // res.json(token);
+      res
+        .cookie("token", token, {
+          httpOnly: true,
+          maxAge: 3600000 * 5,
+          secure: true,
+          sameSite: "none",
+        })
+        .json({ name });
     } catch (error) {
       res.status(400).json({ error: error.message });
     }
@@ -19,13 +27,13 @@ const loginUser = async (req, res) => {
   }
 };
 
-const isLogin = async (req, res) => {
+const isLogin = (req, res) => {
   try {
     const { token } = req.cookies;
-    const userInfo = await jwt.verify(token, process.env.SECRET);
+    const userInfo = jwt.verify(token, process.env.SECRET);
     res.json(userInfo);
   } catch (error) {
-    res.status(204);
+    res.status(401).json(error);
   }
 };
 

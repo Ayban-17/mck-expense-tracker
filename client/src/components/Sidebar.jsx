@@ -10,11 +10,11 @@ const Sidebar = () => {
   const handleLogOut = async () => {
     const url = import.meta.env.VITE_BASE + "users/logout";
     try {
-      await axios.post(url, {}, { withCredentials: true });
+      await axios.get(url, { withCredentials: true });
       setUserInfo(null);
       navigate("/");
     } catch (error) {
-      console.log(error);
+      console.log(error.data);
     }
   };
 
