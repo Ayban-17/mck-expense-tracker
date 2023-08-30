@@ -22,7 +22,7 @@ const Register = () => {
     if (!(password === confirm)) return setError("passwords don't match");
 
     try {
-      const url = import.meta.env.VITE_BASE + "users/register";
+      const url = "/api/v1/users/register";
       const response = await axios.post(url, { username, name, password });
       console.log(response.data);
       navigate("/");

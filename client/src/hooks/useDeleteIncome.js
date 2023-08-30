@@ -5,10 +5,10 @@ const useDeleteIncome = () => {
   const [message, setMessage] = useState(null);
 
   const deleteIncome = async (id) => {
-    const url = import.meta.env.VITE_BASE + "statements/income/" + id;
-
     try {
-      const response = await axios.delete(url, { withCredentials: true });
+      const response = await axios.delete("/api/v1/statements/income/" + id, {
+        withCredentials: true,
+      });
       setMessage(response.data.msg);
     } catch (error) {
       console.log(error.response.data);

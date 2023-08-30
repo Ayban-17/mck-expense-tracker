@@ -18,9 +18,8 @@ const Login = () => {
       return console.log("all inputs are required");
     }
     try {
-      const url = import.meta.env.VITE_BASE + "users/login";
       const response = await axios.post(
-        url,
+        "/api/v1/users/login",
         { username, password },
         { withCredentials: true }
       );

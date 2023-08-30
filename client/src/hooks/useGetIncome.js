@@ -8,7 +8,7 @@ const useGetIncome = () => {
   const setRevenue = useStatementStore((s) => s.setRevenue);
 
   const getIncome = async () => {
-    const url = import.meta.env.VITE_BASE + "statements/income";
+    const url = "/api/v1/statements/income";
     try {
       setIncomes([]);
       const response = await axios.get(url, { withCredentials: true });
@@ -28,10 +28,10 @@ const useGetIncome = () => {
   };
 
   const getOneIncome = async (id) => {
-    const url = import.meta.env.VITE_BASE + "statements/income/" + id;
-
     try {
-      const response = await axios.get(url, { withCredentials: true });
+      const response = await axios.get("/api/v1/statements/income/" + id, {
+        withCredentials: true,
+      });
       setIncomeToEdit(response.data);
     } catch (error) {
       console.log(error.response.data);
@@ -39,10 +39,10 @@ const useGetIncome = () => {
   };
 
   const getOneIncomeToDelete = async (id) => {
-    const url = import.meta.env.VITE_BASE + "statements/income/" + id;
-
     try {
-      const response = await axios.get(url, { withCredentials: true });
+      const response = await axios.get("/api/v1/statements/income/" + id, {
+        withCredentials: true,
+      });
       setIncomeToDelete(response.data);
     } catch (error) {
       console.log(error.response.data);

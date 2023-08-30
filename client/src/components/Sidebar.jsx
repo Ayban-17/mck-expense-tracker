@@ -8,7 +8,7 @@ const Sidebar = () => {
   const isOpen = useMenuStore((state) => state.isOpen);
 
   const handleLogOut = async () => {
-    const url = import.meta.env.VITE_BASE + "users/logout";
+    const url = "/api/v1/users/logout";
     try {
       await axios.get(url, { withCredentials: true });
       setUserInfo(null);

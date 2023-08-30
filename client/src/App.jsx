@@ -17,10 +17,14 @@ const App = () => {
 
   useEffect(() => {
     const isLogin = async () => {
-      const url = import.meta.env.VITE_BASE + "users/auth";
+      // const url = "/api/users/auth";
 
       try {
-        const response = await axios.post(url, {}, { withCredentials: true });
+        const response = await axios.post(
+          "/api/v1/users/auth",
+          {},
+          { withCredentials: true }
+        );
         setUserInfo(response.data);
       } catch (error) {
         return;

@@ -7,9 +7,8 @@ const useUpdateExpense = () => {
 
   const updateExpense = async (date, category, amount, _id) => {
     try {
-      const url = import.meta.env.VITE_BASE + "statements/expense";
       const response = await axios.patch(
-        url,
+        "/api/v1/statements/expense",
         { date, category, amount, _id },
         { withCredentials: true }
       );

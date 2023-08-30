@@ -7,9 +7,8 @@ const useUpdateIncome = () => {
 
   const updateIncome = async (date, category, amount, _id) => {
     try {
-      const url = import.meta.env.VITE_BASE + "statements/income";
       const response = await axios.patch(
-        url,
+        "/api/v1/statements/income",
         { date, category, amount, _id },
         { withCredentials: true }
       );

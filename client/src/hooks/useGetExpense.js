@@ -8,10 +8,11 @@ const useGetExpense = () => {
   const setExpenditure = useStatementStore((s) => s.setExpenditure);
 
   const getExpense = async () => {
-    const url = import.meta.env.VITE_BASE + "statements/expense";
     try {
       setExpense([]);
-      const response = await axios.get(url, { withCredentials: true });
+      const response = await axios.get("/api/v1/statements/expense", {
+        withCredentials: true,
+      });
       setExpense(response.data);
       getExpenditure(response.data);
     } catch (error) {
@@ -19,7 +20,7 @@ const useGetExpense = () => {
     }
   };
   const getExpenseToUpdate = async (id) => {
-    const url = import.meta.env.VITE_BASE + "statements/expense/" + id;
+    const url = "/api/v1/statements/expense/" + id;
 
     try {
       const response = await axios.get(url, { withCredentials: true });
@@ -30,7 +31,7 @@ const useGetExpense = () => {
   };
 
   const getExpenseToDelete = async (id) => {
-    const url = import.meta.env.VITE_BASE + "statements/expense/" + id;
+    const url = "/api/v1/statements/expense/" + id;
 
     try {
       const response = await axios.get(url, { withCredentials: true });

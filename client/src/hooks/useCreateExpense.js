@@ -8,10 +8,10 @@ const useCreateExpense = () => {
 
   const createExpense = async (date, category, amount) => {
     setIsLoading(true);
-    const url = import.meta.env.VITE_BASE + "statements/expense";
+
     try {
       const response = await axios.post(
-        url,
+        "/api/v1/statements/expense",
         { date, category, amount },
         { withCredentials: true }
       );
